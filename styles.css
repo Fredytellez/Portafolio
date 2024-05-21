@@ -1,0 +1,410 @@
+/* Importa los estilos de fuente */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+/* Creación de variables de estilos */
+:root {
+  /* --green: #27ae60; */
+  --blue: #00abe4;
+  --black: #444;
+  --light-color: #777;
+  --bg-color: #e9f1fa;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.2);
+ /*  --box-shadow: 0.4rem 0.4rem 0.4rem #ccc inset, -0.4rem -0.4rem 0.4rem #fff inset;
+  --box-shadow-inset: 1rem 0.4rem 0.1rem #00abe4 inset,
+    -0.4rem -0.4rem 1rem #00abe4 inset; */
+}
+
+/* Estilos Generales */
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* el padding y el border están incluidos en el cálculo del ancho y el alto. */
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+}
+
+/* Estilos al html */
+
+html {
+  /* Por defecto, la mayoría de los navegadores tienen un tamaño de fuente de 16px. Al establecerlo al 62.5%, el tamaño de la fuente se convierte en 10px (16px * 0.625 = 10px) Esto significa que 1rem es igual a 10px */
+  font-size: 62.5%;
+  /* Oculta cualquier contenido que desborde horizontalmente el área visible del navegador. */
+  overflow: hidden;
+  /* Al hacer clic en el enlace que apunta a cualquier sección, la página se desplazará suavemente hacia la sección elegida en lugar de saltar directamente */
+  scroll-behavior: smooth;
+}
+
+/* Estilos body */
+
+body {
+  background: var(--bg-color);
+  padding-left: 30rem;
+}
+
+/* Estilos body con la clase active */
+
+body.active {
+  --black: #fff;
+  --light-color: #ddd;
+  --bg-color: #222;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.4);
+  /* --box-shadow: 0.4rem 0.4rem 0.1rem #111, -0.4rem -0.4rem 1rem #333;
+  --box-shadow-inset: 0.4rem 0.4rem 0.1rem #111 inset,
+    -0.4rem -0.4rem 1rem #333 inset; */
+}
+
+/* Estilos para las section */
+
+section {
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* Estilos clase btn */
+
+.btn {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  padding: 1rem 3.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  background: none;
+  color: var(--black);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--blue);
+  transition: background-color 0.1s ease, color 0s linear;
+}
+
+
+.btn:hover {
+  box-shadow: var(--box-shadow-inset);
+  background: var(--blue);
+  color: var(--bg-color);
+}
+
+/* Estilos títulos por sección */
+
+.heading {
+  text-align: center;
+  font-size: 5rem;
+  color: var(--black);
+  padding-bottom: 2rem;
+}
+
+.heading span {
+  color: var(--blue);
+  text-decoration: uppercase;
+}
+
+/* Estilos del header */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: var(--bg-color);
+  width: 30rem;
+  border-right: var(--border);
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Contiene la imagen animada y la de perfil */
+.user {
+  position: relative;
+  left: 5.5rem;
+  border: 1rem solid var(--blue);
+  margin: 1rem 0;
+  border-radius: 50%;
+  height: 15rem;
+  width: 15rem;
+  box-shadow: var(--box-shadow);
+}
+
+/* Esconde la imagen de perfil */
+.profile img {
+  display: none;
+}
+
+
+/* Estilos imagen de perfil */
+.profile img {
+  position: relative;
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+
+/* Quita la imagen animada */
+.user:hover #lottie-animation{
+  display: none;
+}
+/* Pone la imagen de perfil */
+.user:hover .profile img{
+  display: block;
+}
+
+.nombre-parraf h1 {
+  color: var(--black);
+  font-size: 2.5rem;
+}
+
+.nombre-parraf p {
+  color: var(--blue);
+  font-size: 1.5rem;
+}
+
+.header .navbar {
+  padding-top: 1rem;
+}
+
+.header .navbar a {
+  display: block;
+  margin: 1rem 0;
+  padding: 0.7rem;
+  border-radius: 4rem;
+  font-size: 2rem;
+  box-shadow: var(--box-shadow-inset);
+  color: var(--black);
+  /* border: var(--border); */
+  border: 1.5px solid var(--blue);
+  transition: background-color 0.1s ease, color 0s linear;
+}
+
+.header .navbar a:hover {
+  box-shadow: var(--box-shadow-inset);
+  color: var(--bg-color);
+  background: var(--blue);
+}
+
+/*  Estilos boton menu */
+
+#menu-btn {
+  position: fixed;
+  top: 1.5rem;
+  left: 2rem;
+  z-index: 1000;
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  color: var(--black);
+  background: var(--bg-color);
+  transition: color 0s ease;
+  display: none;
+}
+
+#menu-btn:hover {
+  color: var(--blue);
+  box-shadow: var(--box-shadow-inset);
+  border: none;
+}
+
+/* Estilos boton theme toggler */
+
+#theme-toggler {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 1000; /* z-index más alto se apilará delante de un elemento con un valor más bajo */
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem; /* para centrar de manera vertical */
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  color: var(--blue);
+  background: var(--bg-color);
+  transition: background-color 0.1s ease, color 0s linear;
+}
+
+#theme-toggler:hover {
+  background: var(--blue);
+  color: var(--bg-color);
+  box-shadow: var(--box-shadow-inset);
+}
+
+/* Estilos del Home */
+
+.home {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.home .content h3 {
+  font-size: 7rem;
+  color: var(--blue);
+  line-height: 1.1;
+} 
+
+.home .content p {
+  margin-top: 3rem;
+  font-size: 3rem;
+  color: var(--black);
+  padding-bottom: 0.5rem;
+  margin-bottom: 5rem;
+}
+
+/* Estilos botones redes sociales */
+
+.home .share {
+  position: relative;
+  top: 5rem;
+  border-radius: var(--box-shadow);
+  padding: 1rem;
+}
+
+.home .share a {
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  box-shadow: var(--box-shadow);
+  margin: 0.5rem;
+  font-size: 2rem;
+  color: var(--blue);
+  border-radius: 40%;
+  transition: background-color 0.1s ease, color 0s linear;
+  border: 0.2rem solid var(--blue);
+}
+
+.home .share a:hover {
+  color: var(--bg-color);
+  background: var(--blue);
+}
+
+/* Estilos sección Sobre Mi  */
+
+.about .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+  gap: 2rem;
+}
+
+.about .row .box-container {
+  flex: 1 1 40rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.about .row .box-container .box {
+  flex: 1 1 18rem;
+  text-align: center;
+  padding: 2rem;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.about .row .box-container .box h3 {
+  font-size: 5rem;
+  color: var(--black);
+  line-height: 1.1;
+}
+
+.about .row .box-container .box p {
+  font-size: 1.5rem;
+  color: var(--light-color);
+  padding: .5rem 0;
+}
+
+.about .row .content {
+  flex: 1 1 40rem;
+}
+
+.about .row .content h3{
+  font-size: 3rem;
+  color: var(--black);
+  line-height: 1.8;
+}
+
+.about .row .content h3 span {
+  color: var(--blue);
+}
+
+.about .row .content p {
+  font-size: 2rem;
+  color: var(--light-color);
+  line-height: 1.8;
+  padding: 1rem 0
+}
+
+/* Estilos progresos tecnologías */
+
+.about .row:nth-child(3) {
+  padding-top: 2rem;
+}
+
+
+
+/* Esta es una forma abreviada de la propiedad flex, que define la capacidad del elemento para crecer, encogerse y la base del tamaño del flex respectivamente. */
+.about .row .progress {
+  flex: 1 1 40rem;
+}
+
+.about .row .progress h3 {
+  color: var(--black);
+  font-weight: normal;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about .row .progress .bar {
+  box-shadow: var(--box-shadow);
+  border-radius: 5rem;
+  height: 2rem;
+  padding: .5rem;
+  margin: 1rem 0;
+}
+
+.about .row .progress .bar span {
+  display: block;
+  height: 100%;
+  background: var(--blue);
+  border-radius: 5rem;
+}
+
+/*  Color de acuerdo al porcentaje de la barra */
+
+.about .row .progress .bar-1-1 span {
+  width: 70%;
+}
+.about .row .progress .bar-1-2 span {
+  width: 60%;
+}
+.about .row .progress .bar-1-3 span {
+  width: 60%;
+}
+.about .row .progress .bar-2-1 span {
+  width: 80%;
+}
+.about .row .progress .bar-2-2 span {
+  width: 80%;
+}
+.about .row .progress .bar-2-3 span {
+  width: 100%;
+}
+
+/* Estilos Servicios */
+
